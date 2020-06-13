@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link, withRouter } from 'react-router-dom';
 import {InputGroup, FormControl} from 'react-bootstrap';
 
 //const SideNav = () => {
@@ -12,13 +12,14 @@ class SideNav extends React.Component {
     }
 
     searchStringHandler = (e) => {
+        // this.setState({ searchString: e.currentTarget.value });
         if (e.keyCode === 13) {
           // WHEN ENTER KEY IS PRESSED
           this.props.showSearchResult(this.state.searchString);
         } else {
           this.setState({ searchString: e.currentTarget.value });
         }
-      };
+    };
 
     render(){
     return (
@@ -61,6 +62,8 @@ class SideNav extends React.Component {
                         Library</a
                       >
                     </li>
+                    {this.props.location.pathname === '/'
+                    ?
                     <li>
                       <div className="input-group mt-3">
                         <input
@@ -82,13 +85,14 @@ class SideNav extends React.Component {
                             className="btn btn-outline-secondary btn-sm"
                             type="button"
                             id="button-addon1"
-                            onclick="search()"
                           >
                             GO
                           </button>
                         </div>
                       </div>
                     </li>
+                    : null
+                  }
                   </ul>
                 </div>
               </div>
@@ -106,7 +110,7 @@ class SideNav extends React.Component {
 }
 }
 
-export default SideNav
+export default withRouter(SideNav)
 
 
 

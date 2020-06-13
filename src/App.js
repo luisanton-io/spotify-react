@@ -51,7 +51,7 @@ class App extends React.Component{
       <TopNav/>
       <Route path='/' exact render={(props) => <Home {...props} toBeSearched={this.state.searchedSongs} />} />
       <Route path='/artist/:id' exact component={Artist} />
-      <Route path='/album' exact component={Album} />
+      <Route path='/album/:id' exact component={Album} />
       <Footer/>
     </Router>
   );

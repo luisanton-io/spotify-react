@@ -15,7 +15,7 @@ class Song extends Component {
         />
         {/* </Link> */}
         <p> 
-            <Link to="/album">
+            <Link to={location => `/album/${this.props.song.album.id}`}>
                Album: {this.props.song.album.title}
             </Link>
                <br></br>

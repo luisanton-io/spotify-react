@@ -56,14 +56,14 @@ class Artist extends React.Component {
   displayHead = (artist) => {
     return(
       <>
-      <h2 class="titleMain">{artist.name}</h2>
+      <h2 className="titleMain">{artist.name}</h2>
       <div id="followers">{artist.nb_fan} followers</div>
-      <div class="d-flex justify-content-center" id="button-container">
-      <button class="btn btn-success mr-2 mainButton" id="playButton">
+      <div className="d-flex justify-content-center" id="button-container">
+      <button className="btn btn-success mr-2 mainButton" id="playButton">
           PLAY
       </button>
       <button
-          class="btn btn-outline-light mainButton"
+          className="btn btn-outline-light mainButton"
           id="followButton"
       >
           FOLLOW
@@ -74,9 +74,9 @@ class Artist extends React.Component {
 }
 
 displayAlbum = (albumInfo) => {
-  return albumInfo.map((album)=>{
+  return albumInfo.map((album, i)=>{
   return(
-    <div class="col-sm-auto col-md-3 text-center mb-5">
+    <div className="col-sm-auto col-md-3 text-center mb-5" key={i}>
         <a href="">
             <Image
             className="img-fluid"

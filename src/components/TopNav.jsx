@@ -2,7 +2,7 @@ import React from 'react'
 
 const TopNav = () => {
     return (
-        <div class="col-12 col-md-9 offset-md-3 mainPage">
+        <div className="col-12 col-md-9 offset-md-3 mainPage">
             <div className="row">
                 <div className="col-9 col-lg-11 mainLinks d-none d-md-flex">
                 <a href="#">TRENDING</a>
