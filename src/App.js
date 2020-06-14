@@ -14,8 +14,15 @@ class App extends React.Component{
     super(props);
     this.state = {
       searchedSongs: [],
+      albumId: null,
+      albumCover: null,
+      albumLabel: null, 
+      albumTitle: null
     };
   }
+
+  albumToFooter = (albumId,albumCover, albumLabel, albumTitle) => this.setState({albumId, albumCover, albumLabel, albumTitle})
+  
 
   showSearchResult = (searchString) => {
     console.log(searchString)
@@ -45,14 +52,15 @@ class App extends React.Component{
   };
 
   render(){
+    console.log(this.state.albumId)
   return (
     <Router>
       <SideNav  showSearchResult={this.showSearchResult}/>
       <TopNav/>
       <Route path='/' exact render={(props) => <Home {...props} toBeSearched={this.state.searchedSongs} />} />
       <Route path='/artist/:id' exact component={Artist} />
-      <Route path='/album/:id' exact component={Album} />
-      <Footer/>
+      <Route path='/album/:id' exact render={(props) => <Album {...props} sendAlbum={this.albumToFooter} />} />
+      <Footer albumId={this.state.albumId} albumCover={this.state.albumCover} albumLabel={this.state.albumLabel} albumTitle={this.state.albumTitle}/>
     </Router>
   );
 }

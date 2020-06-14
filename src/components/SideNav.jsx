@@ -21,6 +21,11 @@ class SideNav extends React.Component {
         }
     };
 
+    clickHandler = (e) => {
+      this.setState({ searchString: e.currentTarget.value });
+      this.props.showSearchResult(this.state.searchString);
+  };
+
     render(){
     return (
         <div className="col-2">
@@ -85,6 +90,7 @@ class SideNav extends React.Component {
                             className="btn btn-outline-secondary btn-sm"
                             type="button"
                             id="button-addon1"
+                            onClick={this.clickHandler}
                           >
                             GO
                           </button>

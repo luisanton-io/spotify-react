@@ -1,5 +1,6 @@
 import React from 'react'
 import Gallery from "./Gallery";
+import { Alert} from "react-bootstrap";
 
 
 
@@ -37,7 +38,9 @@ class Home extends React.Component{
         this.state={
             rockSongInfo:[],
             popSongInfo:[],
-            hipSongInfo:[]
+            hipSongInfo:[],
+            loading: true,
+            error: false,
         }
 
     }
@@ -79,6 +82,7 @@ class Home extends React.Component{
             "x-rapidapi-key": "4013e328ffmsh3feb54311ce7296p1c3cc4jsnd3ad09e0821d",
           });
 
+        let rockResArray = []
         for (let j = 0; j < rockRandomArtists.length; j++) {
           fetch(
             "https://deezerdevs-deezer.p.rapidapi.com/search?q=" +
@@ -95,14 +99,19 @@ class Home extends React.Component{
             })
             .then((artists) => {
               let songInfo = artists.data;
-              this.setState({rockSongInfo: songInfo})
-              //console.log(this.state.rockSongInfo)
+              rockResArray.push(songInfo[0])
+              this.setState({rockSongInfo: rockResArray})
+              return rockResArray
             })
+            .then(() => this.setState({ loading: false }))
             .catch((error) => {
+              //this.setState({ error: true });
               console.log(error);
             });
         }
         
+
+        let popResArray = []
         for (let j = 0; j < popRandomArtists.length; j++) {
             fetch(
               "https://deezerdevs-deezer.p.rapidapi.com/search?q=" +
@@ -119,13 +128,19 @@ class Home extends React.Component{
               })
               .then((artists) => {
                 let songInfo = artists.data;
-                this.setState({popSongInfo: songInfo})
+                popResArray.push(songInfo[0])
+                this.setState({popSongInfo: popResArray})
+                return popResArray
               })
+              .then(() => this.setState({ loading: false }))
               .catch((error) => {
+                //this.setState({ error: true });
                 console.log(error);
               });
           }
+
   
+          let hipResArray = []
           for (let j = 0; j < hipHopRandomArtists.length; j++) {
             fetch(
               "https://deezerdevs-deezer.p.rapidapi.com/search?q=" +
@@ -142,12 +157,17 @@ class Home extends React.Component{
               })
               .then((artists) => {
                 let songInfo = artists.data;
-                this.setState({hipSongInfo: songInfo})
+                hipResArray.push(songInfo[0])
+                this.setState({hipSongInfo: hipResArray})
+                return hipResArray
               })
+              .then(() => this.setState({ loading: false }))
               .catch((error) => {
+                //this.setState({ error: true });
                 console.log(error);
               });
           }
+          
     }
 
 
@@ -155,29 +175,34 @@ class Home extends React.Component{
 
     render(){
         return (
-            <div className="col-12 col-md-9 offset-md-3 mainPage">
+            <div className="col-12 col-md-9 offset-md-3 mainPage pb-5">
+            {this.state.error && (
+              <Alert variant="danger" className="text-center">
+                An error has occurred, please try again later
+              </Alert>
+            )}
             {this.props.toBeSearched.length > 0 && (
               <Gallery
-                title="Search results"
+                title={this.props.toBeSearched[0].artist.name}
                 songs={this.props.toBeSearched}
               />
             )}
-            {!this.props.toBeSearched.length > 0 && (
+            {!this.state.error && !this.props.toBeSearched.length > 0 && (
                 <>
                 <Gallery
                 title="Rock Classics"
-                //loading={this.state.loading}
-                songs={this.state.rockSongInfo.slice(0,4)}
+                loading={this.state.loading}
+                songs={this.state.rockSongInfo}
               />
               <Gallery
                 title="Pop Artist"
-                //loading={this.state.loading}
-                songs={this.state.popSongInfo.slice(0,4)}
+                loading={this.state.loading}
+                songs={this.state.popSongInfo}
               />
               <Gallery
                 title="Hipop Top"
-                //loading={this.state.loading}
-                songs={this.state.hipSongInfo.slice(0,4)}
+                loading={this.state.loading}
+                songs={this.state.hipSongInfo}
               />
               </>
             )}

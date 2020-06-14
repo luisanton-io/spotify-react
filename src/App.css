@@ -72,7 +72,7 @@ ul {
   border: 1px solid white;
   border-radius: 20px;
   width: 180px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .login-btn:hover {
@@ -91,6 +91,7 @@ ul {
 .bg-container {
   height: 5.5rem;
   background-color: #282828;
+  z-index: 1300;
 }
 
 .playerControls .row {

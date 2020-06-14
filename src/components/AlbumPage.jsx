@@ -6,15 +6,22 @@ class Album extends React.Component {
     this.state={
       albums: [],
       tracks:[],
-      artist:[]
-
+      artist:[],
+      //albumId: null
     }
     console.log(this.props)
   }
   
+  
+  albumToFooter = (albumId, albumCover, albumLabel, albumTitle) => (
+    this.props.sendAlbum(albumId, albumCover, albumLabel, albumTitle)
+    )
 
   componentDidMount = () =>{
     let albumId = this.props.match.params.id;
+    
+    //this.setState({albumId: albumId})
+    //this.albumIdToFooter(albumId)
 
     let headers = new Headers({
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
@@ -35,6 +42,8 @@ class Album extends React.Component {
         let album = albumList
         let artist = albumList.artist
         let tracks = albumList.tracks.data
+
+        this.albumToFooter(albumId, album.cover_small, album.label, album.title)
         
         this.setState({albums: album, artist: artist, tracks: tracks})
         console.log(this.state.albums)
