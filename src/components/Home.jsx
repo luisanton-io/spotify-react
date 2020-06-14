@@ -176,36 +176,41 @@ class Home extends React.Component{
     render(){
         return (
             <div className="col-12 col-md-9 offset-md-3 mainPage pb-5">
-            {this.state.error && (
-              <Alert variant="danger" className="text-center">
-                An error has occurred, please try again later
-              </Alert>
-            )}
-            {this.props.toBeSearched.length > 0 && (
-              <Gallery
-                title={this.props.toBeSearched[0].artist.name}
-                songs={this.props.toBeSearched}
-              />
-            )}
-            {!this.state.error && !this.props.toBeSearched.length > 0 && (
-                <>
-                <Gallery
-                title="Rock Classics"
-                loading={this.state.loading}
-                songs={this.state.rockSongInfo}
-              />
-              <Gallery
-                title="Pop Artist"
-                loading={this.state.loading}
-                songs={this.state.popSongInfo}
-              />
-              <Gallery
-                title="Hipop Top"
-                loading={this.state.loading}
-                songs={this.state.hipSongInfo}
-              />
-              </>
-            )}
+              <div className="row">
+                <div className="col-10 col-md-10 col-lg-10 p-0">
+                  {this.state.error && (
+                    <Alert variant="danger" className="text-center">
+                      An error has occurred, please try again later
+                    </Alert>
+                  )}
+                  {this.props.toBeSearched.length > 0 && (
+                    <Gallery
+                      title={this.props.toBeSearched[0].artist.name}
+                      songs={this.props.toBeSearched}
+                    />
+                  )}
+                  {!this.state.error && !this.props.toBeSearched.length > 0 && (
+                    <>
+                      <Gallery
+                        title="Rock Classics"
+                        loading={this.state.loading}
+                        songs={this.state.rockSongInfo}
+                      />
+                      <Gallery
+                        title="Pop Artist"
+                        loading={this.state.loading}
+                        songs={this.state.popSongInfo}
+                      />
+                      <Gallery
+                        title="Hipop Top"
+                        loading={this.state.loading}
+                        songs={this.state.hipSongInfo}
+                      />
+                    </>
+                  )}
+                </div>
+              </div>
+            
             </div>
         )
     }

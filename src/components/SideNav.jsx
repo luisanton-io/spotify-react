@@ -58,14 +58,13 @@ class SideNav extends React.Component {
                   <ul>
                     <li>
                       <Link to='/' className="nav-item nav-link"
-                        ><i className="fas fa-home fa-lg"></i>&nbsp; Home
+                        ><i className="fa fa-home fa-lg"></i>&nbsp; Home
                       </Link>
                     </li>
                     <li>
                       <a className="nav-item nav-link" href="#"
-                        ><i className="fas fa-book-open fa-lg"></i>&nbsp; Your
-                        Library</a
-                      >
+                        ><i className="fa fa-book-open fa-lg"></i>&nbsp; Your
+                        Library</a>
                     </li>
                     {this.props.location.pathname === '/'
                     ?

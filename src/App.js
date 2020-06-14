@@ -23,7 +23,6 @@ class App extends React.Component{
 
   albumToFooter = (albumId,albumCover, albumLabel, albumTitle) => this.setState({albumId, albumCover, albumLabel, albumTitle})
   
-
   showSearchResult = (searchString) => {
     console.log(searchString)
     let headers = new Headers({

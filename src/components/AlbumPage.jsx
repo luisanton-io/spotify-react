@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 class Album extends React.Component {
   constructor(props){
@@ -7,7 +8,6 @@ class Album extends React.Component {
       albums: [],
       tracks:[],
       artist:[],
-      //albumId: null
     }
     console.log(this.props)
   }
@@ -19,9 +19,6 @@ class Album extends React.Component {
 
   componentDidMount = () =>{
     let albumId = this.props.match.params.id;
-    
-    //this.setState({albumId: albumId})
-    //this.albumIdToFooter(albumId)
 
     let headers = new Headers({
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
@@ -67,7 +64,7 @@ class Album extends React.Component {
       <p className="album-title">{album.label}</p>
     </div>
     <div className="text-center">
-      <a href=""><p className="artist-name">{artist.name}</p></a>
+      <Link to={`/artist/`+artist.id}><p className="artist-name">{artist.name}</p></Link>
     </div>
     <div className="mt-4 text-center">
       <button id="btnPlay" className="btn btn-success" type="button">

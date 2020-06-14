@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Image} from 'react-bootstrap'
+import {Link} from 'react-router-dom';
 
 class Artist extends React.Component {
   constructor(props){
@@ -86,9 +87,9 @@ displayAlbum = (albumInfo) => {
         <p>
             <a href="#"> Track: {album.title} </a>
             <br/>
-            <a href="" className="wrap">
+            <Link to={`/album/`+album.album.id} className="wrap">
             Album: {album.album.title}
-            </a>
+            </Link>
         </p>
     </div>
     )
