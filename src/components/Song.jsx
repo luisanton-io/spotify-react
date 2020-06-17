@@ -7,13 +7,11 @@ class Song extends Component {
       //console.log(this.props)
     return (
       <Col className="mb-2" key={this.props.song.id}>
-      {/* <Link to={'/details/' + this.props.data.imdbID}> */}
         <img
           className="img-fluid"
           src={this.props.song.album.cover_medium}
           alt="song"
         />
-        {/* </Link> */}
         <p> 
             <Link to={location => `/album/${this.props.song.album.id}`}>
                Album: {this.props.song.album.title}
