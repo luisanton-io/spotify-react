@@ -183,13 +183,8 @@ class Home extends React.Component{
                       An error has occurred, please try again later
                     </Alert>
                   )}
-                  {this.props.toBeSearched.length > 0 && (
-                    <Gallery
-                      title={this.props.toBeSearched[0].artist.name}
-                      songs={this.props.toBeSearched}
-                    />
-                  )}
-                  {!this.state.error && !this.props.toBeSearched.length > 0 && (
+                  
+                    {!this.state.error && !this.props.toBeSearched.length > 0 && (
                     <>
                       <Gallery
                         title="Rock Classics"
@@ -207,6 +202,12 @@ class Home extends React.Component{
                         songs={this.state.hipSongInfo}
                       />
                     </>
+                    )}
+                    {this.props.toBeSearched.length > 0 &&(
+                    <Gallery
+                      title={this.props.toBeSearched[0].artist.name}
+                      songs={this.props.toBeSearched}
+                    />
                   )}
                 </div>
               </div>
