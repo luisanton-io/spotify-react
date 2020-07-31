@@ -61,19 +61,19 @@ const Footer = (props) => {
                         <div className="col-6 playerControls mt-1">
                             <div className="row">
                                 <a href="#">
-                                    <img src="playerbuttons/Shuffle.png" alt="shuffle" />
+                                    <img src="/playerbuttons/Shuffle.png" alt="shuffle" />
                                 </a>
                                 <a href="#">
-                                    <img src="playerbuttons/Previous.png" alt="shuffle" />
+                                    <img src="/playerbuttons/Previous.png" alt="shuffle" />
                                 </a>
                                 <a href="#">
-                                    <img src="playerbuttons/Play.png" alt="shuffle" />
+                                    <img src="/playerbuttons/Play.png" alt="shuffle" />
                                 </a>
                                 <a href="#">
-                                    <img src="playerbuttons/Next.png" alt="shuffle" />
+                                    <img src="/playerbuttons/Next.png" alt="shuffle" />
                                 </a>
                                 <a href="#">
-                                    <img src="playerbuttons/Repeat.png" alt="shuffle" />
+                                    <img src="/playerbuttons/Repeat.png" alt="shuffle" />
                                 </a>
                             </div>
                         </div>
