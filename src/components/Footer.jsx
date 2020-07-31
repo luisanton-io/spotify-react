@@ -1,53 +1,45 @@
 import React from 'react'
 import Actions from '../consts/Actions'
-import {Link, withRouter } from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { Link, withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { connect } from 'react-redux'
-import {faHeart as filledHeart} from '@fortawesome/free-solid-svg-icons'
-import {faHeart as emptyHeart} from '@fortawesome/free-regular-svg-icons'
+import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons'
 
-// const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => state;
 
-// const mapDispatchToProps = (dispatch) => ({
-//   toggleLike: (id) => {
-//     let action = props.likedSongs.includes(id) ? Actions.toggleLike.unlike : Actions.toggleLike.like
-//     dispatch({
-//     type: Actions.playingQueue.add,
-//     payload: id,
-//     }),
-//   }
-// });
 
 const Footer = (props) => {
     console.log(props.albumCover)
     console.log(props)
-    return (        
+    return (
         <div className="container-fluid fixed-bottom bg-container pt-1">
             <div className="row">
                 <div className="col">
                     {
-                        props.location.pathname === '/album/'+ props.albumId && (
-                        <div className="row text-white">
-                            <div className="col-4">
-                                <img
-                                    src={props.albumCover}
-                                    style={{height:"5rem", width: "5rem"}}
-                                    className="card-img img-fluid"
-                                    alt="cover image of album"
-                                />
-                                
-                            </div>
-                            <div className="col d-flex py-3">
-                                <div className="d-flex flex-column justify-content-center">
-                                    <small>{props.albumLabel}</small>
-                                    <small>{props.albumTitle}</small>
+                        props.location.pathname === '/album/' + props.albumId && (
+                            <div className="row text-white">
+                                <div className="col-4">
+                                    <img
+                                        src={props.albumCover}
+                                        style={{ height: "5rem", width: "5rem" }}
+                                        className="card-img img-fluid"
+                                        alt="cover image of album"
+                                    />
+
                                 </div>
-                                <div className="d-flex flex-column justify-content-center">
-                                    <FontAwesomeIcon icon={emptyHeart} onClick={() => props.toggleLike(props.playingQueue.playList[props.playingQueue.nowPlaying])}></FontAwesomeIcon>
+                                <div className="col d-flex py-3">
+                                    <div className="d-flex flex-column justify-content-center">
+                                        <small>{props.albumLabel}</small>
+                                        <small>{props.playingQueue.nowPlaying.title}</small>
+                                        {/* <small>{props.albumTitle}</small> */}
+                                    </div>
+                                    <div className="d-flex flex-column justify-content-center">
+                                        <FontAwesomeIcon icon={emptyHeart} onClick={() => props.toggleLike(props.playingQueue.playList[props.playingQueue.nowPlaying])}></FontAwesomeIcon>
+                                    </div>
+
                                 </div>
-                                    
                             </div>
-                        </div>
                         )
                     }
                 </div>
@@ -95,5 +87,5 @@ const Footer = (props) => {
     )
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Footer))
-export default (withRouter(Footer))
+export default connect(mapStateToProps)(withRouter(Footer))
+
