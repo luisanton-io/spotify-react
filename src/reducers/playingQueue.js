@@ -1,10 +1,10 @@
 import Actions from '../consts/Actions'
 export default function (state = {}, action) {
     switch (action.type) {
-        case Actions.playingQueue.set: 
+        case Actions.playingQueue.set:
             return {
                 ...state,
-                list: action.payload
+                nowPlaying: action.payload
             }
         // case Actions.playingQueue.add: 
         //     return {
