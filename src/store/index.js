@@ -1,6 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 // import statusReducer from "../reducers/status"
-// import songListReducer from "../reducers/songList"
 import likedSongsReducer from "../reducers/likedSongs"
 import playingQueueReducer from "../reducers/playingQueue"
 // import userReducer from "../reducers/user"
@@ -10,37 +9,23 @@ import thunk from "redux-thunk";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const initialState = {
-    status: {
-        loading: true,
-        error: false,
-    },
-    songList: {
-        rockSongInfo: [],
-        popSongInfo: [],
-        hipSongInfo: [],
-
-        artistInfo: '',
-        albumInfo: [],
-
-        albums: [],
-        tracks: [],
-        artist: [],
-    },
+    // status: {
+    //     loading: true,
+    //     error: false,
+    // },
     likedSongs: {
         list: [],
     },
     playingQueue: {
-        // playList: [],
         nowPlaying: null
     },
-    user: {
-        username: null,
-    },
+    // user: {
+    //     username: null,
+    // },
 };
 
 const bigReducer = combineReducers({
     // status: statusReducer,
-    // songList: songListReducer,
     likedSongs: likedSongsReducer,
     playingQueue: playingQueueReducer,
     // user: userReducer
