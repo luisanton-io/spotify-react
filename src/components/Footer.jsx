@@ -21,7 +21,7 @@ const Footer = (props) => {
     let nowPlaying = props.playingQueue.nowPlaying
     console.log(nowPlaying)
     console.log(props.location.pathname === '/album/') 
-    let liked = nowPlaying ? props.likedSongs.likedList.some(id => id === nowPlaying.id) : null
+    let liked = nowPlaying ? props.likedSongs.list.some(id => id === nowPlaying.id) : null
     return (
         <div className="container-fluid fixed-bottom bg-container pt-1">
             <div className="row">
@@ -52,10 +52,10 @@ const Footer = (props) => {
                                     </div>
                                     <div className="d-flex flex-column justify-content-center">
                                         {
-                                            liked &&
+                                            (liked !== null) &&
                                             <FontAwesomeIcon
                                                 icon={liked ? filledHeart : emptyHeart}
-                                                onClick={() => props.toggleLike(nowPlaying, !liked)}
+                                                onClick={() => props.toggleLike(props.playingQueue.nowPlaying.id, liked)}
                                             />
                                         }
                                     </div>
