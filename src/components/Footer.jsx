@@ -10,8 +10,8 @@ const mapStateToProps = (state) => state;
 
 
 const Footer = (props) => {
-    console.log(props.albumCover)
-    console.log(props)
+    // console.log(props.albumCover)
+    // console.log(props)
     return (
         <div className="container-fluid fixed-bottom bg-container pt-1">
             <div className="row">
