@@ -17,29 +17,38 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const Footer = (props) => {
-    console.log(props.albumCover)
     console.log(props)
     let nowPlaying = props.playingQueue.nowPlaying
+    console.log(nowPlaying)
+    console.log(props.location.pathname === '/album/') 
     let liked = nowPlaying ? props.likedSongs.likedList.some(id => id === nowPlaying.id) : null
     return (
         <div className="container-fluid fixed-bottom bg-container pt-1">
             <div className="row">
                 <div className="col">
                     {
-                        props.location.pathname === '/album/' && (
+                        // props.location.pathname === '/album/' && (
                             <div className="row text-white">
                                 <div className="col-4">
-                                    <img
-                                        src={nowPlaying.albumCover}
-                                        style={{ height: "5rem", width: "5rem" }}
-                                        className="card-img img-fluid"
-                                        alt="cover image of album"
-                                    />
+                                    {
+                                        props.playingQueue.album && props.playingQueue.album.cover_small && 
+                                        <img
+                                            src={props.playingQueue.album.cover_small}
+                                            style={{ height: "5rem", width: "5rem" }}
+                                            className="card-img img-fluid"
+                                            alt="cover image of album"
+                                        />
+                                    }
                                 </div>
                                 <div className="col d-flex py-3">
                                     <div className="d-flex flex-column justify-content-center">
-                                        <small>{nowPlaying.albumLabel}</small>
-                                        <small>{nowPlaying.albumTitle}</small>
+                                        {
+                                            props.playingQueue.nowPlaying &&
+                                            <>
+                                                <small>{props.playingQueue.nowPlaying.title}</small>
+                                                <small>{props.playingQueue.album.title}</small>
+                                            </>
+                                        }
                                     </div>
                                     <div className="d-flex flex-column justify-content-center">
                                         {
@@ -53,7 +62,7 @@ const Footer = (props) => {
 
                                 </div>
                             </div>
-                        )
+                        // )
                     }
                 </div>
                 <div className="col-12 col-lg-5">

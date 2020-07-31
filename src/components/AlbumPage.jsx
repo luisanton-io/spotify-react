@@ -7,10 +7,13 @@ import Actions from '../consts/Actions';
 const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = (dispatch) => ({
-  setPlayingNow: (track) =>
+  setPlayingNow: (track, album) =>
     dispatch({
       type: Actions.playingQueue.set,
-      payload: track
+      payload: {
+        track: track,
+        album: album
+      }
     }),
 });
 
@@ -26,9 +29,9 @@ class Album extends React.Component {
   }
 
 
-  albumToFooter = (albumId, albumCover, albumLabel, albumTitle) => (
-    this.props.sendAlbum(albumId, albumCover, albumLabel, albumTitle)
-  )
+  // albumToFooter = (albumId, albumCover, albumLabel, albumTitle) => (
+  //   this.props.sendAlbum(albumId, albumCover, albumLabel, albumTitle)
+  // )
 
   componentDidMount = () => {
     let albumId = this.props.match.params.id;
@@ -53,7 +56,7 @@ class Album extends React.Component {
         let artist = albumList.artist
         let tracks = albumList.tracks.data
 
-        this.albumToFooter(albumId, album.cover_small, album.label, album.title)
+        // this.albumToFooter(albumId, album.cover_small, album.label, album.title)
 
         this.setState({ albums: album, artist: artist, tracks: tracks })
         // console.log(this.state.albums)
@@ -92,7 +95,7 @@ class Album extends React.Component {
     return (
       song.map((track, i) => {
         return (
-          <div className="py-3 trackHover" key={i} onClick={() => this.props.setPlayingNow(track)}>
+          <div className="py-3 trackHover" key={i} onClick={() => this.props.setPlayingNow(track, this.state.albums)}>
             <a
               href="#"
               className="card-title trackHover px-3"
