@@ -84,6 +84,7 @@ class Album extends React.Component {
             href="#"
             className="card-title trackHover px-3"
             style={{color: "white"}}
+            // onClick={() => this.props.updateQueue(track)}
             >{track.title}</a>
           <small className="duration pr-3" style={{color: "white"}}
             >{(track.duration / 60).toFixed(2)}</small>

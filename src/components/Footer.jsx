@@ -10,7 +10,7 @@ import {faHeart as emptyHeart} from '@fortawesome/free-regular-svg-icons'
 
 // const mapDispatchToProps = (dispatch) => ({
 //   toggleLike: (id) => {
-//     let action = 
+//     let action = props.likedSongs.includes(id) ? Actions.toggleLike.unlike : Actions.toggleLike.like
 //     dispatch({
 //     type: Actions.playingQueue.add,
 //     payload: id,
@@ -43,7 +43,7 @@ const Footer = (props) => {
                                     <small>{props.albumTitle}</small>
                                 </div>
                                 <div className="d-flex flex-column justify-content-center">
-                                    <FontAwesomeIcon icon={emptyHeart} onClick={() => props.toggleLike(props.playingQueue[0].id)}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={emptyHeart} onClick={() => props.toggleLike(props.playingQueue.playList[props.playingQueue.nowPlaying])}></FontAwesomeIcon>
                                 </div>
                                     
                             </div>

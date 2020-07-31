@@ -1,9 +1,9 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-import statusReducer from "../reducers/status"
-import songListReducer from "../reducers/songList"
+// import statusReducer from "../reducers/status"
+// import songListReducer from "../reducers/songList"
 import likedSongsReducer from "../reducers/likedSongs"
 import playingQueueReducer from "../reducers/playingQueue"
-import userReducer from "../reducers/user"
+// import userReducer from "../reducers/user"
 
 import thunk from "redux-thunk";
 
@@ -30,7 +30,7 @@ const initialState = {
         likedList: [],
     },
     playingQueue: {
-        playList: [],
+        // playList: [],
         nowPlaying: null
     },
     user: {
@@ -39,11 +39,11 @@ const initialState = {
 };
 
 const bigReducer = combineReducers({
-    status: statusReducer,
-    songList: songListReducer,
+    // status: statusReducer,
+    // songList: songListReducer,
     likedSongs: likedSongsReducer,
     playingQueue: playingQueueReducer,
-    user: userReducer
+    // user: userReducer
 });
 
 export default function configureStore() {

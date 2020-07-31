@@ -6,16 +6,16 @@ export default function (state = {}, action) {
                 ...state,
                 list: action.payload
             }
-        case Actions.playingQueue.add: 
-            return {
-                ...state,
-                list: state.list.concat(action.payload)
-            }
-        case Actions.playingQueue.remove:
-            return {
-                ...state,
-                list: state.list.filter(song => song !== action.payload)
-            }
+        // case Actions.playingQueue.add: 
+        //     return {
+        //         ...state,
+        //         list: state.list.concat(action.payload)
+        //     }
+        // case Actions.playingQueue.remove:
+        //     return {
+        //         ...state,
+        //         list: state.list.filter(song => song !== action.payload)
+        //     }
         default: return state;
     }
 }
