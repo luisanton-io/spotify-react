@@ -1,6 +1,11 @@
 import Actions from '../consts/Actions'
 export default function (state = {}, action) {
     switch (action.type) {
+        case Actions.playingQueue.set: 
+            return {
+                ...state,
+                list: action.payload
+            }
         case Actions.playingQueue.add: 
             return {
                 ...state,
@@ -11,5 +16,6 @@ export default function (state = {}, action) {
                 ...state,
                 list: state.list.filter(song => song !== action.payload)
             }
+        default: return state;
     }
 }
