@@ -1,7 +1,9 @@
+import Actions from '../consts/Actions'
+
 export default function (state = {}, action) {
     switch (action.type) {
         //add like to a song
-        case "LIKE_SONG":
+        case Actions.toggleLike.like:
             return {
                 ...state,
                 likedSongs: {
@@ -11,7 +13,7 @@ export default function (state = {}, action) {
 
             }
         //remove like to a song
-        case "UNLIKE_SONG":
+        case Actions.toggleLike.unlike:
             const removeToLikedSongs = state.likedSongs.songInfo.findIndex(
                 (songId) => songId === action.payload
             )
