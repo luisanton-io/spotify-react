@@ -31,7 +31,7 @@ const initialState = {
     },
     playingQueue: {
         // playList: [],
-        nowPlaying: []
+        nowPlaying: null
     },
     user: {
         username: null,
