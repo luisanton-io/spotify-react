@@ -6,27 +6,14 @@ export default function (state = {}, action) {
         case Actions.toggleLike.like:
             return {
                 ...state,
-                likedSongs: {
-                    ...state.likedSongs,
-                    songInfo: state.likedSongs.songInfo.concat(action.payload)
-                }
+                list: state.list.concat(action.payload)
 
             }
         //remove like to a song
         case Actions.toggleLike.unlike:
-            const removeToLikedSongs = state.likedSongs.songInfo.findIndex(
-                (songId) => songId === action.payload
-            )
             return {
                 ...state,
-                likedSongs: {
-                    ...state.likedSongs,
-                    songInfo: [
-                        ...state.likedSongs.songInfo.slice(0, removeToLikedSongs),
-                        ...state.likedSongs.songInfo.slice(removeToLikedSongs + 1)
-                    ]
-                }
-
+                list: state.list.filter( id => id !== action.payload )
             }
         default: return state
     }

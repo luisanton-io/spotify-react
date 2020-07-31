@@ -4,7 +4,8 @@ export default function (state = {}, action) {
         case Actions.playingQueue.set:
             return {
                 ...state,
-                nowPlaying: action.payload
+                nowPlaying: action.payload.track,
+                album: action.payload.album
             }
         // case Actions.playingQueue.add: 
         //     return {

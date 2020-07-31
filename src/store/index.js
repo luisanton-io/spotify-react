@@ -27,7 +27,7 @@ const initialState = {
         artist: [],
     },
     likedSongs: {
-        likedList: [],
+        list: [],
     },
     playingQueue: {
         // playList: [],
