@@ -22,7 +22,7 @@ class Album extends React.Component {
       tracks: [],
       artist: [],
     }
-    console.log(this.props)
+    // console.log(this.props)
   }
 
 
@@ -110,7 +110,6 @@ class Album extends React.Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <div className="col-12 col-md-9 offset-md-3 mainPage">
         <div className="row">
