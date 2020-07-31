@@ -315,7 +315,8 @@ ul {
   background-color: rgb(47, 47, 47);
 }
 
-.btn, .btn-outline-black, .btn-success, .btn-dark, .btn-primary, .btn-green {
+/* .btn,  */
+.btn-outline-black, .btn-success, .btn-dark, .btn-primary, .btn-green {
   font-family: "Circular", sans-serif;
   padding: 0.85rem;
   letter-spacing: 2px;
