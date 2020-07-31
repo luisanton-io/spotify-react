@@ -27,10 +27,10 @@ const initialState = {
         artist: [],
     },
     likedSongs: {
-        songInfo: [],
+        likedList: [],
     },
     playingQueue: {
-        list: [],
+        playList: [],
     },
     user: {
         username: null,
